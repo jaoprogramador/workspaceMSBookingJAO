@@ -1,0 +1,40 @@
+services:
+  reservas-service:
+    build: .  # Cambia si tu Dockerfile está en otro lugar
+    container_name: reservas-service
+    restart: always
+    ports:
+      - "3000:3000"  # Ajusta según el puerto de tu app
+    environment:
+      DB_HOST: mysql-db
+      DB_PORT: 3306
+      DB_USER: reservas_user
+      DB_PASSWORD: reservas_pass
+      DB_NAME: reservas_db
+    depends_on:
+      - mysql-db
+    networks:
+      - reservas-network
+
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass
+      MYSQL_DATABASE: reservas_db
+      MYSQL_USER: reservas_user
+      MYSQL_PASSWORD: reservas_pass
+    ports:
+      - "3307:3306"  # Expones en 3307 para evitar conflictos
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - reservas-network
+
+volumes:
+  mysql_data:
+
+networks:
+  reservas-network:
+    driver: bridge
