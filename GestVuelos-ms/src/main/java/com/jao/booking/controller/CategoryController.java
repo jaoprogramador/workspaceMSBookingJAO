@@ -1,0 +1,23 @@
+package com.jao.booking.controller;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import lombok.Getter;
+import lombok.Setter;
+
+
+@RestController
+@RequestMapping("api/categories")
+@Getter
+@Setter
+public class CategoryController {
+	@Value("&{app.testProp}")
+	private String testProp;
+	
+	public String getTestProp() {
+		return this.testProp;
+	}
+
+}
