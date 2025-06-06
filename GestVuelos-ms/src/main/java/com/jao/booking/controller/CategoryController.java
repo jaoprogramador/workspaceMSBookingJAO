@@ -20,9 +20,16 @@ public class CategoryController {
 	@Value("${app.testProp}")
 	private String testProp;
 	
+	@Value("${app.testPropVersion}")
+	private String testPropVersion;
+	
 	@GetMapping("test-prop")
 	public String getTestProp() {
 		return this.testProp;
 	}
-
+	
+	@GetMapping("test-prop-version")
+	public String getTestPropVersion() {
+		return this.testPropVersion;
+	}
 }
