@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.Getter;
 import lombok.Setter;
 
-
+//@EnableRefreshScope 
 @RestController
 @RequestMapping("api/categories")
 @Getter
