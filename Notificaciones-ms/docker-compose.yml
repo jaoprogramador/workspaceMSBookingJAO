@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-db-notificaciones
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass
+      MYSQL_DATABASE: notificaciones_db
+      MYSQL_USER: notificaciones_user
+      MYSQL_PASSWORD: notificaciones_pass
+    ports:
+      - "3309:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - notificaciones-network
+
+volumes:
+  mysql_data:
+
+networks:
+  notificaciones-network:
+    driver: bridge

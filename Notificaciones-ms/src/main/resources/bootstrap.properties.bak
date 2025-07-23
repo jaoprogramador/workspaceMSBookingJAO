@@ -5,7 +5,7 @@ spring.cloud.config.uri=http://localhost:8888
 management.endpoints.web.exposure.include=*
 
 spring.cloud.config.profile=dev
-spring.application.name=Reservas-ms
+spring.application.name=Notificaciones-ms
 
 #spring.datasource.username=reservas_user
 #spring.datasource.password=reservas_pass
@@ -22,12 +22,12 @@ eureka.client.fetch-registry=true
 # CONG VAULT
 # ===========
 spring.cloud.vault.uri=http://localhost:8200
-spring.cloud.vault.application-name=Reservas-ms
+spring.cloud.vault.application-name=Notificaciones-ms
 spring.cloud.vault.host=localhost
 spring.cloud.vault.port=8200
 spring.cloud.vault.schema=http
 spring.cloud.vault.authentication=TOKEN
-spring.cloud.vault.token=hvs.r8B2y8mlpQ91Eq34onbaBkLO
+spring.cloud.vault.token=hvs.OqBe0cyOJJb8JaXzsHTr6qQB
 
 # CONF RABBITMQ
 # ==============
