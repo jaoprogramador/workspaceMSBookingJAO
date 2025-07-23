@@ -39,6 +39,31 @@ public class VueloController {
         return vuelo.map(ResponseEntity::ok)
                     .orElse(ResponseEntity.notFound().build());
     }
+    
+ // Obtener un vuelo por codigoVuelo
+    @GetMapping("/plazas-libres/{codigoVuelo}")
+    public boolean obtenerNumPlazasLibres(@PathVariable String codigoVuelo) {
+    	
+    	// ⚠️ Simulación de error para probar Circuit Breaker
+        //throw new RuntimeException("Error simulado en obtenerNumPlazasLibres");
+
+        // Código real (se ignora mientras se prueba el fallback)
+        
+        Optional<VueloEntity> vueloOpt = vueloRepository.findByCodigoVuelo(codigoVuelo);
+
+        if (vueloOpt.isEmpty()) {
+            return false;
+        }
+
+        VueloEntity vuelo = vueloOpt.get();
+        if (vuelo.getAsientosDisponibles() == null || vuelo.getAsientosDisponibles() <= 0) {
+            return false;
+        }
+
+        return true;
+        
+    }
+
 
     // Crear un nuevo vuelo
     @PostMapping
