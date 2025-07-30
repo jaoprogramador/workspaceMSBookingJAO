@@ -197,7 +197,7 @@
 		    <version>7.4</version>
 		</dependency>
 		
-		<!-- Tracing moderno con Micrometer y Zipkin -->
+		<!-- Tracing moderno con Micrometer y Zipkin 
 		<dependency>
 		    <groupId>io.micrometer</groupId>
 		    <artifactId>micrometer-tracing-bridge-brave</artifactId>
@@ -205,7 +205,7 @@
 		<dependency>
 		    <groupId>io.zipkin.reporter2</groupId>
 		    <artifactId>zipkin-reporter-brave</artifactId>
-		</dependency>
+		</dependency>-->
 		
 		<!-- AOP para logging automático de métodos -->
 		<dependency>
@@ -218,7 +218,18 @@
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
-<!-- MICROSERVICIOS 
+		<!-- Spring Boot Actuator -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		
+		<!-- Micrometer Prometheus registry -->
+		<dependency>
+		    <groupId>io.micrometer</groupId>
+		    <artifactId>micrometer-registry-prometheus</artifactId>
+		</dependency>
+	<!-- MICROSERVICIOS 
 		<dependency>
 			<groupId>com.jao.booking</groupId>
 			<artifactId>GestVuelos-ms</artifactId>

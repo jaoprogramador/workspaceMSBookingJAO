@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  usuarios-ms:
+    build:
+      context: ./usuarios-ms
+    container_name: usuarios-ms
+    ports:
+      - "8081:8081"
+    networks:
+      - usuarios-network
+
+  prometheus:
+    image: prom/prometheus
+    container_name: Usuarios-ms-prometheus-1
+    ports:
+      - "9095:9095"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - usuarios-network
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks:
+      - usuarios-network
+
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-db-usuarios
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass
+      MYSQL_DATABASE: usuarios_db
+      MYSQL_USER: usuarios_user
+      MYSQL_PASSWORD: usuarios_pass
+    ports:
+      - "3310:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - usuarios-network
+
+volumes:
+  mysql_data:
+  grafana_data:
+
+networks:
+  usuarios-network:
+    driver: bridge
