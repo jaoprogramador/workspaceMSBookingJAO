@@ -1156,3 +1156,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 2025-07-30 15:11:45.407 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration
 2025-07-30 15:16:45.411 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration
 2025-07-30 15:21:45.423 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration
+2025-07-30 15:26:45.432 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration
+2025-07-30 15:31:45.445 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration
+2025-07-30 16:01:59.238 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool – HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=27m19s542ms510µs500ns).
+2025-07-30 16:03:34.977 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration
+2025-07-30 16:08:34.984 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration

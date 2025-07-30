@@ -374,3 +374,12 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 2025-07-30 15:19:52.942 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration
 2025-07-30 15:20:31.484 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration
 2025-07-30 15:24:52.952 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration
+2025-07-30 15:25:31.498 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration
+2025-07-30 15:29:52.960 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration
+2025-07-30 15:30:31.507 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration
+2025-07-30 15:34:52.973 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration
+2025-07-30 16:02:21.045 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration
+2025-07-30 16:06:42.506 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration
+2025-07-30 16:07:21.057 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration
+2025-07-30 16:11:42.529 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration
+2025-07-30 16:12:21.064 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver – Resolving eureka endpoints via configuration
