@@ -5,11 +5,14 @@ spring.cloud.config.uri=http://localhost:8888
 management.endpoints.web.exposure.include=*
 
 spring.cloud.config.profile=dev
-spring.application.name=Usuarios-ms
+spring.application.name=GestHoteles-ms
+
+#spring.datasource.username=reservas_user
+#spring.datasource.password=reservas_pass
 
 #PONEMOS PUERTO FIJO PARA USAR PROMETHEUS
-#server.port=0
-server.port=61194
+server.port=0
+#server.port=8081
 
 #Definimos un id autogenerado para las instancias del MS
 eureka.instance.instance-id=${spring.application.name}:${random.uuid}
@@ -21,13 +24,13 @@ eureka.client.fetch-registry=true
 # CONG VAULT
 # ===========
 spring.cloud.vault.uri=http://localhost:8200
-spring.cloud.vault.application-name=Usuarios-ms
+spring.cloud.vault.application-name=GestHoteles-ms
 spring.cloud.vault.host=localhost
 spring.cloud.vault.port=8200
 spring.cloud.vault.schema=http
 spring.cloud.vault.authentication=TOKEN
-spring.cloud.vault.token=hvs.O2bCOFeFxXZ6U7udgYAD4ivJ
-spring.application.name=Usuarios-ms
+#COMENTAMOS PARA COMMIT
+spring.cloud.vault.token=hvs.MSU5hjhjFmF2gnyo3t4TtiF5
 
 # CONF RABBITMQ
 # ==============
@@ -56,7 +59,6 @@ resilience4j.circuitbreaker.instances.reservasCircuitBreaker.ignore-exceptions=
 # Nombre de tu FeignClient: coincide con @FeignClient(name = "gestVuelosService")
 feign.client.config.gestVuelosService.connectTimeout=500
 feign.client.config.gestVuelosService.readTimeout=500
-#server.port=0
 
 # LOGS
 # =======
@@ -75,23 +77,8 @@ logging.file.path=logs
 #spring.zipkin.sender.type=web
 #spring.zipkin.enabled: false
 
-
-# === CARGA DATOS FLYWAY
-spring.flyway.enabled=true
-spring.flyway.locations=classpath:db/migration
-spring.flyway.baseline-on-migrate=true
-spring.flyway.schemas=usuarios_db
-spring.flyway.table=flyway_schema_history
-
-# PARA VER TRAZAS MIGRACION
-logging.level.org.flywaydb=DEBUG
-logging.level.org.hibernate.SQL=DEBUG
-logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
-
-# MONITOREO ACTUATOR PROMETHEUS GRAFANA 
-# =======================================
-management.endpoints.web.exposure.include=*
-management.endpoints.health.include.show=always
-#management.endpoints.web.exposure.include=health,info,prometheus
+# MONITOREO PROMETHEUS GRAFANA 
+# ==============================
+management.endpoints.web.exposure.include=health,info,prometheus
 management.endpoint.prometheus.enabled=true
 management.metrics.export.prometheus.enabled=true

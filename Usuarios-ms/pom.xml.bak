@@ -69,11 +69,11 @@
             <artifactId>jakarta.persistence-api</artifactId>
             <version>3.1.0</version>
         </dependency>
-        <dependency>
+        <!--dependency>
             <groupId>javax.persistence</groupId>
             <artifactId>javax.persistence-api</artifactId>
             <version>2.2</version>
-        </dependency>
+        </dependency-->
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
@@ -81,18 +81,12 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Eureka Client -->
+        <!-- Eureka Client
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
-        <!-- Resilience4j (Circuit Breaker) 
-        <dependency>
-            <groupId>io.github.resilience4j</groupId>
-            <artifactId>resilience4j-spring-boot2</artifactId>
-            <version>1.7.1</version>
-        </dependency>-->
 		<dependency>
 		    <groupId>org.springframework.cloud</groupId>
 		    <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
@@ -110,8 +104,8 @@
 		<dependency>
 		    <groupId>io.github.openfeign</groupId>
 		    <artifactId>feign-core</artifactId>
-		</dependency>
-        <!-- Config Server & Vault -->
+		</dependency> -->
+        <!-- Config Server & Vault 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
@@ -123,15 +117,15 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
-        </dependency>
+        </dependency>-->
 
-        <!-- OpenFeign -->
+        <!-- OpenFeign
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
+        </dependency> -->
 
-        <!-- OAuth2 Client & Resource Server -->
+        <!-- OAuth2 Client & Resource Server 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-oauth2-client</artifactId>
@@ -145,19 +139,12 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-oauth2-jose</artifactId>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-oauth2-resource-server</artifactId>
         </dependency>
 
-        <!-- Lombok
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.32</version>
-            <scope>provided</scope>
-        </dependency> -->
         <dependency>
 		    <groupId>org.projectlombok</groupId>
 		    <artifactId>lombok</artifactId>
@@ -171,19 +158,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Logging y Tracing 
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-logging</artifactId>
-        </dependency>
         
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-sleuth</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zipkin</artifactId>
-        </dependency>-->
         <!-- Logging JSON para Logstash/ELK -->
 		<dependency>
 		    <groupId>net.logstash.logback</groupId>
@@ -191,7 +166,7 @@
 		    <version>7.4</version>
 		</dependency>
 		
-		<!-- Tracing moderno con Micrometer y Zipkin 
+		<!-- Tracing moderno con Micrometer y Zipkin
 		<dependency>
 		    <groupId>io.micrometer</groupId>
 		    <artifactId>micrometer-tracing-bridge-brave</artifactId>
@@ -199,9 +174,9 @@
 		<dependency>
 		    <groupId>io.zipkin.reporter2</groupId>
 		    <artifactId>zipkin-reporter-brave</artifactId>
-		</dependency>-->
+		</dependency> -->
 		
-		<!-- AOP para logging automÃ¡tico de mÃ©todos -->
+		<!-- AOP para logging automático de métodos -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-aop</artifactId>
@@ -223,24 +198,21 @@
 		    <groupId>io.micrometer</groupId>
 		    <artifactId>micrometer-registry-prometheus</artifactId>
 		</dependency>
-	<!-- MICROSERVICIOS 
-		<dependency>
-			<groupId>com.jao.booking</groupId>
-			<artifactId>GestVuelos-ms</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.jao.booking</groupId>
-			<artifactId>Notificaciones-ms</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency-->
-     <!-- Mapper -->
+		<!-- Mapper -->
         <dependency>
 		    <groupId>org.modelmapper</groupId>
 		    <artifactId>modelmapper</artifactId>
 		    <version>3.1.1</version>
-		</dependency>   
-
+		</dependency>
+		<!-- flyway: migrar BD, cargadatos -->
+		<dependency>
+	        <groupId>org.flywaydb</groupId>
+	        <artifactId>flyway-mysql</artifactId>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.flywaydb</groupId>
+	        <artifactId>flyway-core</artifactId>
+	    </dependency>
 
         
 

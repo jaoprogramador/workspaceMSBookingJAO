@@ -3,11 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.5.0</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.12</version>
+        <relativePath/>
+    </parent>
 	<groupId>com.jao.booking</groupId>
 	<artifactId>GestHoteles-ms</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -32,8 +32,10 @@
 	</dependencyManagement>
 
     <!-- 4) Declaracion de dependencias -->
+    <!-- 4) Declaracion de dependencias -->
     <dependencies>
- 		<!-- Spring Boot Starters -->
+
+        <!-- Spring Boot Starters -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -69,12 +71,18 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Eureka Client-->
+        <!-- Eureka Client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
+        <!-- Resilience4j (Circuit Breaker) 
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-spring-boot2</artifactId>
+            <version>1.7.1</version>
+        </dependency>-->
 		<dependency>
 		    <groupId>org.springframework.cloud</groupId>
 		    <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
@@ -92,7 +100,7 @@
 		<dependency>
 		    <groupId>io.github.openfeign</groupId>
 		    <artifactId>feign-core</artifactId>
-		</dependency> 
+		</dependency>
         <!-- Config Server & Vault -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -133,6 +141,13 @@
             <artifactId>spring-security-oauth2-resource-server</artifactId>
         </dependency>
 
+        <!-- Lombok
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.32</version>
+            <scope>provided</scope>
+        </dependency> -->
         <dependency>
 		    <groupId>org.projectlombok</groupId>
 		    <artifactId>lombok</artifactId>
@@ -146,7 +161,19 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Logging y Tracing 
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
         
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>-->
         <!-- Logging JSON para Logstash/ELK -->
 		<dependency>
 		    <groupId>net.logstash.logback</groupId>
@@ -154,7 +181,7 @@
 		    <version>7.4</version>
 		</dependency>
 		
-		<!-- Tracing moderno con Micrometer y Zipkin
+		<!-- Tracing moderno con Micrometer y Zipkin 
 		<dependency>
 		    <groupId>io.micrometer</groupId>
 		    <artifactId>micrometer-tracing-bridge-brave</artifactId>
@@ -162,7 +189,7 @@
 		<dependency>
 		    <groupId>io.zipkin.reporter2</groupId>
 		    <artifactId>zipkin-reporter-brave</artifactId>
-		</dependency> -->
+		</dependency>-->
 		
 		<!-- AOP para logging automático de métodos -->
 		<dependency>
@@ -186,13 +213,23 @@
 		    <groupId>io.micrometer</groupId>
 		    <artifactId>micrometer-registry-prometheus</artifactId>
 		</dependency>
-		<!-- Mapper -->
+	<!-- MICROSERVICIOS 
+		<dependency>
+			<groupId>com.jao.booking</groupId>
+			<artifactId>GestVuelos-ms</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jao.booking</groupId>
+			<artifactId>Notificaciones-ms</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency-->
+     <!-- Mapper -->
         <dependency>
 		    <groupId>org.modelmapper</groupId>
 		    <artifactId>modelmapper</artifactId>
 		    <version>3.1.1</version>
-		</dependency>
-        
+		</dependency>   
 
         
     </dependencies>

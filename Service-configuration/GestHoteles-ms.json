@@ -1,0 +1,5 @@
+{
+	"spring.datasource.username":"gestHoteles_user",
+	"spring.datasource.password":"gestHoteles_pass",
+	"spring.datasource.url":"jdbc:mysql://localhost:3311/gestHoteles_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
+}

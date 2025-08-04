@@ -65,8 +65,12 @@
 	    <dependency>
 	      <groupId>org.springframework.boot</groupId>
 	      <artifactId>spring-boot-starter-actuator</artifactId>
-	      <version>3.4.3</version>
 	    </dependency>
+	    <!-- Micrometer Prometheus registry -->
+		<dependency>
+		    <groupId>io.micrometer</groupId>
+		    <artifactId>micrometer-registry-prometheus</artifactId>
+		</dependency>
 	    <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-vault-config -->
 		<dependency>
 		    <groupId>org.springframework.cloud</groupId>

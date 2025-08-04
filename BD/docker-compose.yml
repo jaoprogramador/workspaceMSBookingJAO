@@ -1,0 +1,118 @@
+version: '3.8'
+
+services:
+
+  #############################
+  # Bases de Datos
+  #############################
+
+  mysql-gesthoteles:
+    image: mysql:8.0
+    container_name: mysql-db-gestHoteles
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass
+      MYSQL_DATABASE: gestHoteles_db
+      MYSQL_USER: gestHoteles_user
+      MYSQL_PASSWORD: gestHoteles_pass
+    ports:
+      - "3311:3306"
+    volumes:
+      - mysql_data_gesthoteles:/var/lib/mysql
+    networks:
+      - backend
+
+  mongodb-vuelos:
+    image: mongo:latest
+    container_name: mongodbVuelos
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+    volumes:
+      - mongo_data_vuelos:/data/db
+    networks:
+      - backend
+
+  mysql-notificaciones:
+    image: mysql:8.0
+    container_name: mysql-db-notificaciones
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass
+      MYSQL_DATABASE: notificaciones_db
+      MYSQL_USER: notificaciones_user
+      MYSQL_PASSWORD: notificaciones_pass
+    ports:
+      - "3309:3306"
+    volumes:
+      - mysql_data_notificaciones:/var/lib/mysql
+    networks:
+      - backend
+
+  mysql-reservas:
+    image: mysql:8.0
+    container_name: mysql-db-reservas
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass
+      MYSQL_DATABASE: reservas_db
+      MYSQL_USER: reservas_user
+      MYSQL_PASSWORD: reservas_pass
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data_reservas:/var/lib/mysql
+    networks:
+      - backend
+
+  mysql-usuarios:
+    image: mysql:8.0
+    container_name: mysql-db-usuarios
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass
+      MYSQL_DATABASE: usuarios_db
+      MYSQL_USER: usuarios_user
+      MYSQL_PASSWORD: usuarios_pass
+    ports:
+      - "3310:3306"
+    volumes:
+      - mysql_data_usuarios:/var/lib/mysql
+    networks:
+      - backend
+
+  #############################
+  # Observabilidad
+  #############################
+
+  #prometheus:
+  #  image: prom/prometheus
+  #  container_name: reservas-ms-prometheus-1
+  #  ports:
+  #    - "9095:9090"
+  #  volumes:
+  #    - ./prometheus.yml:/etc/prometheus/prometheus.yml
+  #  networks:
+  #    - backend
+#
+ # grafana:
+ #   image: grafana/grafana
+ #   ports:
+ #     - "3000:3000"
+ #   environment:
+ #     - GF_SECURITY_ADMIN_PASSWORD=admin
+ #   networks:
+ #     - backend
+
+networks:
+  backend:
+
+volumes:
+  mysql_data_gesthoteles:
+  mongo_data_vuelos:
+  mysql_data_notificaciones:
+  mysql_data_reservas:
+  mysql_data_usuarios:
