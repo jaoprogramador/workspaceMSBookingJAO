@@ -1,4 +1,4 @@
-package com.jao.booking.emum;
+package com.jao.booking.enumEstado;
 
 public enum EstadoVehiculo {
     NUEVO,

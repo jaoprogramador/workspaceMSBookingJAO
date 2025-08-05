@@ -84,28 +84,57 @@ services:
     networks:
       - backend
 
+  mysql-alquilervehiculos:
+    image: mysql:8.0
+    container_name: mysql-db-alquilervehiculos
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass
+      MYSQL_DATABASE: alquilervehiculos_db
+      MYSQL_USER: alquiler_user
+      MYSQL_PASSWORD: alquiler_pass
+    ports:
+      - "3312:3306"
+    volumes:
+      - mysql_data_alquilervehiculos:/var/lib/mysql
+    networks:
+      - backend
+
   #############################
-  # Observabilidad
+  # Adminer (opcional)
   #############################
 
-  #prometheus:
-  #  image: prom/prometheus
-  #  container_name: reservas-ms-prometheus-1
-  #  ports:
-  #    - "9095:9090"
-  #  volumes:
-  #    - ./prometheus.yml:/etc/prometheus/prometheus.yml
-  #  networks:
-  #    - backend
-#
- # grafana:
- #   image: grafana/grafana
- #   ports:
- #     - "3000:3000"
- #   environment:
- #     - GF_SECURITY_ADMIN_PASSWORD=admin
- #   networks:
- #     - backend
+  adminer:
+    image: adminer
+    container_name: adminer-alquilervehiculos
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+
+  #############################
+  # Observabilidad (comentado)
+  #############################
+
+  # prometheus:
+  #   image: prom/prometheus
+  #   container_name: reservas-ms-prometheus-1
+  #   ports:
+  #     - "9095:9090"
+  #   volumes:
+  #     - ./prometheus.yml:/etc/prometheus/prometheus.yml
+  #   networks:
+  #     - backend
+
+  # grafana:
+  #   image: grafana/grafana
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - GF_SECURITY_ADMIN_PASSWORD=admin
+  #   networks:
+  #     - backend
 
 networks:
   backend:
@@ -116,3 +145,4 @@ volumes:
   mysql_data_notificaciones:
   mysql_data_reservas:
   mysql_data_usuarios:
+  mysql_data_alquilervehiculos:

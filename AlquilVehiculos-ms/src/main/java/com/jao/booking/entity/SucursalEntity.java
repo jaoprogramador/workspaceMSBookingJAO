@@ -1,35 +1,39 @@
 package com.jao.booking.entity;
 
-import jakarta.persistence.*;
-import jakarta.persistence.*;
-import lombok.*;
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "vehiculos")
+@Table(name = "sucursales")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class VehiculoEntity {
+public class SucursalEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String marca;
-    private String modelo;
-    private String matricula;
-    private String tipo; // SUV, Sedán, etc.
-    private int anio;
-    private int kilometraje;
-    private boolean disponible;
+    private String nombre;
+    private String direccion;
+    private String ciudad;
+    private String pais;
+    private String telefono;
 
-    @Enumerated(EnumType.STRING)
-    private EstadoVehiculo estado; // NUEVO, USADO, MANTENIMIENTO
-
-    @ManyToOne
-    @JoinColumn(name = "sucursal_id")
-    private SucursalEntity sucursal;
+    @OneToMany(mappedBy = "sucursal")
+    private List<VehiculoEntity> vehiculos;
 }
+
 
 

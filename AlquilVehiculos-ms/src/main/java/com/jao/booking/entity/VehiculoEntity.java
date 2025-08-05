@@ -1,5 +1,7 @@
 package com.jao.booking.entity;
 
+import com.jao.booking.enumEstado.EstadoVehiculo;
+
 import jakarta.persistence.*;
 import lombok.*;
 

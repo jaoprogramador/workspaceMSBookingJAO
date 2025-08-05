@@ -1,0 +1,5 @@
+{
+  "spring.r2dbc.url": "r2dbc:mysql://localhost:3312/alquilerVehiculos_db",
+  "spring.r2dbc.username": "alquilerVehiculos_user",
+  "spring.r2dbc.password": "alquilerVehiculos_pass"
+}
