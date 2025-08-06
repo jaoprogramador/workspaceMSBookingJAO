@@ -104,14 +104,14 @@ services:
   # Adminer (opcional)
   #############################
 
-  adminer:
-    image: adminer
-    container_name: adminer-alquilervehiculos
-    restart: always
-    ports:
-      - "8080:8080"
-    networks:
-      - backend
+#  adminer:
+#    image: adminer
+#    container_name: adminer-alquilervehiculos
+#    restart: always
+#    ports:
+#      - "8080:8080"
+#    networks:
+#      - backend
 
   #############################
   # Observabilidad (comentado)

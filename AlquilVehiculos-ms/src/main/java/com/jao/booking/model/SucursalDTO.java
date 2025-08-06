@@ -7,11 +7,11 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class SucursalDTO {
-    private Long id;
+	private Long id;
     private String nombre;
     private String direccion;
     private String ciudad;
-    private String pais;
-    private String telefono;
+    // getters y setters
+
 }
 

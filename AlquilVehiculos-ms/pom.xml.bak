@@ -81,65 +81,6 @@
 			<artifactId>r2dbc-h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
- 		<!-- Eureka Client -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-		<!-- Config Server & Vault -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-vault-config</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
-        </dependency>
-
-		<!-- Spring Boot Actuator -->
-		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		
-		<!-- Micrometer Prometheus registry -->
-		<dependency>
-		    <groupId>io.micrometer</groupId>
-		    <artifactId>micrometer-registry-prometheus</artifactId>
-		</dependency>
-		<!-- OAuth2 Client & Resource Server -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-oauth2-client</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-webflux</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-oauth2-jose</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-oauth2-resource-server</artifactId>
-        </dependency>
-        <!-- flyway: migrar BD, cargadatos -->
-		<dependency>
-	        <groupId>org.flywaydb</groupId>
-	        <artifactId>flyway-mysql</artifactId>
-	    </dependency>
-	    <dependency>
-	        <groupId>org.flywaydb</groupId>
-	        <artifactId>flyway-core</artifactId>
-	    </dependency>
-
     </dependencies>
 
     <build>

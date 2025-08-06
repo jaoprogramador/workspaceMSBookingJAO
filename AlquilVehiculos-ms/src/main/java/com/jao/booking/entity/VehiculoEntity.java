@@ -1,35 +1,28 @@
 package com.jao.booking.entity;
 
-import com.jao.booking.enumEstado.EstadoVehiculo;
 
-import jakarta.persistence.*;
-import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
-@Entity
-@Table(name = "vehiculos")
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table("vehiculos")
 public class VehiculoEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
     private Long id;
-
     private String marca;
     private String modelo;
-    private String matricula;
-    private String tipo; // SUV, Sedán, etc.
-    private int anio;
-    private int kilometraje;
+    private int año;
+    private Long sucursalId;
     private boolean disponible;
-
-    @Enumerated(EnumType.STRING)
-    private EstadoVehiculo estado; // NUEVO, USADO, MANTENIMIENTO
-
-    @ManyToOne
-    @JoinColumn(name = "sucursal_id")
-    private SucursalEntity sucursal;
 }
+
 

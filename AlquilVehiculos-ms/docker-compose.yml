@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  mysql-alquilervehiculos:
+    image: mysql:8.0
+    container_name: mysql-db-alquilervehiculos
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass
+      MYSQL_DATABASE: alquilervehiculos_db
+      MYSQL_USER: alquiler_user
+      MYSQL_PASSWORD: alquiler_pass
+    ports:
+      - "3312:3306"
+    volumes:
+      - mysql_data_alquilervehiculos:/var/lib/mysql
+    networks:
+      - backend
+
+volumes:
+  mysql_data_alquilervehiculos:
+
+networks:
+  backend:
