@@ -7,6 +7,9 @@ target/
 *.jar
 *.log
 *.log.gz
+*.tmp
+/logs/
+/Notificaciones-ms/logs/
 ### STS ###
 .apt_generated
 .classpath
