@@ -1,5 +1,7 @@
 package com.jao.booking.controller;
 
+import java.time.Duration;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
 
 import com.jao.booking.model.SucursalDTO;
 import com.jao.booking.model.VehiculoDTO;
@@ -28,9 +31,10 @@ public class AlquilerVehiculosController {
 
     // --- Vehículos ---
 
-    @GetMapping("/vehiculos")
+    @GetMapping(value = "/vehiculos", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+
     public Flux<VehiculoDTO> getAllVehiculos() {
-        return service.getAllVehiculos();
+        return service.getAllVehiculos().delayElements(Duration.ofMillis(500));
     }
 
     @GetMapping("/vehiculos/{id}")

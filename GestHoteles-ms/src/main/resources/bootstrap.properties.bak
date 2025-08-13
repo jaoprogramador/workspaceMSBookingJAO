@@ -30,7 +30,7 @@ spring.cloud.vault.port=8200
 spring.cloud.vault.schema=http
 spring.cloud.vault.authentication=TOKEN
 #COMENTAMOS PARA COMMIT
-spring.cloud.vault.token=hvs.MSU5hjhjFmF2gnyo3t4TtiF5
+spring.cloud.vault.token=hvs.Itmyqtx1taMjeEnFf6n6Eai2
 
 # CONF RABBITMQ
 # ==============

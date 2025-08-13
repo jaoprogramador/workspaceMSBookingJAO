@@ -1,6 +1,6 @@
 package com.jao.booking.model;
 
 public enum TipoNotificacion {
-    RESERVA, VUELO, ALQUILER, FACTURA, HOTEL
+    RESERVA, VUELO, ALQUILER, FACTURA, HOTEL, USUARIO
 
 }

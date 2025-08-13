@@ -1,4 +1,4 @@
-package com.jao.booking.service.notificacion;
+package com.jao.booking.service.notificacion.reservas;
 
 import com.jao.booking.common.exception.NotFoundException;
 import com.jao.booking.entity.EstadoNotificacion;

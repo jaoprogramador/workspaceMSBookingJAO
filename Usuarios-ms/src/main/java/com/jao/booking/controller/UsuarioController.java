@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jao.booking.model.UsuarioDTO;
+import com.jao.booking.service.UsuarioProducerEvent;
 import com.jao.booking.service.UsuarioService;
 
 @RestController
@@ -18,9 +19,11 @@ import com.jao.booking.service.UsuarioService;
 public class UsuarioController {
 
     private final UsuarioService service;
+    private final UsuarioProducerEvent producer;
 
-    public UsuarioController(UsuarioService service) {
+    public UsuarioController(UsuarioService service, UsuarioProducerEvent producer) {
         this.service = service;
+        this.producer = producer;
     }
 
     @GetMapping
@@ -35,7 +38,9 @@ public class UsuarioController {
 
     @PostMapping
     public UsuarioDTO create(@RequestBody UsuarioDTO dto) {
-        return service.save(dto);
+    	producer.enviarUsuarioCreado(dto);  
+    	return service.save(dto);
+        
     }
 
     @DeleteMapping("/{id}")

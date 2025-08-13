@@ -203,6 +203,11 @@
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
+		<!-- KAFKA -->
+		<dependency>
+		    <groupId>org.springframework.kafka</groupId>
+		    <artifactId>spring-kafka</artifactId>
+		  </dependency>
 		<!-- Jackson (para deserializar mensajes JSON) -->
 		<dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>

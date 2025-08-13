@@ -6,15 +6,15 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 import com.jao.booking.config.RabbitMQConfig;
 import com.jao.booking.model.ReservaNotificadaDTO;
-import com.jao.booking.service.notificacion.NotificacionService;
+import com.jao.booking.service.notificacion.reservas.NotificacionService;
 
 @Slf4j
 @Component
-public class NotificacionListener {
+public class ReservasRBTListener {
 
 	private final NotificacionService notificacionService;
 	
-	public NotificacionListener(NotificacionService notificacionService) {
+	public ReservasRBTListener(NotificacionService notificacionService) {
         this.notificacionService = notificacionService;
     }
 

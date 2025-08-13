@@ -190,16 +190,11 @@
 		    <artifactId>logstash-logback-encoder</artifactId>
 		    <version>7.4</version>
 		</dependency>
-		
-		<!-- Tracing moderno con Micrometer y Zipkin 
-		<dependency>
-		    <groupId>io.micrometer</groupId>
-		    <artifactId>micrometer-tracing-bridge-brave</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>io.zipkin.reporter2</groupId>
-		    <artifactId>zipkin-reporter-brave</artifactId>
-		</dependency>-->
+		<!-- Mensajeria Kafka -->
+		 <dependency>
+		    <groupId>org.springframework.kafka</groupId>
+		    <artifactId>spring-kafka</artifactId>
+		  </dependency>
 		
 		<!-- AOP para logging automÃ¡tico de mÃ©todos -->
 		<dependency>

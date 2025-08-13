@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.jao.booking.entity.NotificacionEntity;
 import com.jao.booking.model.ReservaNotificadaDTO;
-import com.jao.booking.service.notificacion.NotificacionService;
+import com.jao.booking.service.notificacion.reservas.NotificacionService;
 
 import java.util.List;
 

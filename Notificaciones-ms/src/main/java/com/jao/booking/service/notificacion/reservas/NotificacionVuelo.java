@@ -1,4 +1,4 @@
-package com.jao.booking.service.notificacion;
+package com.jao.booking.service.notificacion.reservas;
 
 import com.jao.booking.model.ReservaNotificadaDTO;
 import com.jao.booking.model.TipoNotificacion;
@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class NotificacionAlquiler implements NotificacionStrategy {
+public class NotificacionVuelo implements NotificacionStrategy {
 
     @Override
     public boolean acepta(TipoNotificacion tipo) {
-        return tipo == TipoNotificacion.ALQUILER;
+        return tipo == TipoNotificacion.VUELO;
     }
 
     @Override

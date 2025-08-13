@@ -72,6 +72,7 @@
 			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!--
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -80,7 +81,7 @@
 			<groupId>io.r2dbc</groupId>
 			<artifactId>r2dbc-h2</artifactId>
 			<scope>runtime</scope>
-		</dependency>
+		</dependency> -->
  		<!-- Eureka Client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -139,7 +140,19 @@
 	        <groupId>org.flywaydb</groupId>
 	        <artifactId>flyway-core</artifactId>
 	    </dependency>
-
+	    <dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>8.0.33</version>
+		</dependency>
+	    <!--
+		<dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.3.0</version>
+            <scope>runtime</scope>
+        </dependency> -->
+		
     </dependencies>
 
     <build>
