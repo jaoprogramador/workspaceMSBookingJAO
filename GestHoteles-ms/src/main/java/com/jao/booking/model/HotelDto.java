@@ -18,4 +18,6 @@ public class HotelDto {
     private String ciudad;
     private boolean activo;
     private List<String> imagenesUrls;
+    private List<HabitacionDto> habitaciones;
+
 }

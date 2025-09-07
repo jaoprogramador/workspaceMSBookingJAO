@@ -40,4 +40,9 @@ public class HotelController {
         hotelService.eliminar(id);
         return ResponseEntity.noContent().build();
     }
+    @GetMapping("/plazas-libres/{idHotel}")
+    public ResponseEntity<Boolean> tienePlazasLibres(@PathVariable Long idHotel) {
+        boolean disponible = hotelService.tieneHabitacionesDisponibles(idHotel);
+        return ResponseEntity.ok(disponible);
+    }
 }

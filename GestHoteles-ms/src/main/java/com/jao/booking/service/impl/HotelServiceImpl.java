@@ -9,6 +9,7 @@ import com.jao.booking.service.HotelService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -52,4 +53,19 @@ public class HotelServiceImpl implements HotelService {
     public void eliminar(Long id) {
         hotelRepository.deleteById(id);
     }
+    public boolean tieneHabitacionesDisponibles(Long idHotel) {
+    	HotelEntity hotel = hotelRepository.findById(idHotel)
+    	        .orElseThrow(() -> new RuntimeException("Hotel no encontrado"));
+
+    	    LocalDate hoy = LocalDate.now();
+
+    	    return hotel.getHabitaciones().stream()
+    	        .anyMatch(habitacion -> habitacion.getDisponibilidades().stream()
+    	            .anyMatch(disponibilidad -> 
+    	                (disponibilidad.getFechaInicio().isEqual(hoy) || disponibilidad.getFechaInicio().isBefore(hoy)) &&
+    	                (disponibilidad.getFechaFin().isEqual(hoy) || disponibilidad.getFechaFin().isAfter(hoy))
+    	            ));
+
+    }
+
 }

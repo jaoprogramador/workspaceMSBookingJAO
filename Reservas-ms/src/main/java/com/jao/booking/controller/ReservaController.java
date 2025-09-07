@@ -36,6 +36,9 @@ import com.jao.booking.service.ReservaService;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
@@ -203,12 +206,17 @@ public class ReservaController {
 		log.info("Reservas-ms:::ReservaController.fallbackToGestVuelosService:::INI");
 	    return reservaService.fallbackPedido(orderDTO, codigoVuelo, throwable);
 	}
+	@Operation(summary = "Obtiene todas las reservas")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Listado de reservas obtenido correctamente")
+    })
 	@GetMapping
 	public List<ReservaEntity> getAllReservas() {
 		log.info("Reservas-ms:::ReservaController.getAllReservas:::INI");
 	    return reservaService.getAllReservas();
 	}
 
+	@Operation(summary = "Obtiene una reserva por su ID")
 	@GetMapping("/{id}")
 	public ResponseEntity<ReservaEntity> getReservaById(@PathVariable Long id) {
 		log.info("Reservas-ms:::ReservaController.getReservaById:::INI");
@@ -216,6 +224,8 @@ public class ReservaController {
 	            .map(ResponseEntity::ok)
 	            .orElse(ResponseEntity.notFound().build());
 	}
+	
+	@Operation(summary = "Obtiene un reserva por su code")
 
 	@GetMapping("/code/{code}")
 	public ResponseEntity<ReservaEntity> getReservaByCode(@PathVariable Long code) {
@@ -225,18 +235,20 @@ public class ReservaController {
 
 	}
 
+	@Operation(summary = "Obtiene una reserva de usuario por su ID")
 	@GetMapping("/usuario/{usuarioId}")
 	public List<ReservaEntity> getReservasByUsuario(@PathVariable Long usuarioId) {
 		log.info("Reservas-ms:::ReservaController.getReservasByUsuario:::INI");
 	    return reservaService.getReservasByUsuario(usuarioId);
 	}
-
+	@Operation(summary = "crea una nueva reserva")
 	@PostMapping
 	public ResponseEntity<ReservaEntity> crearReserva(@RequestBody ReservaEntity reserva) {
 		log.info("Reservas-ms:::ReservaController.crearReserva:::INI");
 	    return ResponseEntity.ok(reservaService.crearReserva(reserva));
 	}
 
+	@Operation(summary = "Actualiza una reserva por su ID")
 	@PutMapping("/{id}")
 	public ResponseEntity<ReservaEntity> actualizarReserva(
 	        @PathVariable Long id,
@@ -247,6 +259,8 @@ public class ReservaController {
 	            .map(ResponseEntity::ok)
 	            .orElse(ResponseEntity.notFound().build());
 	}
+	
+	@Operation(summary = "Elimina una reserva por su ID")
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> eliminarReserva(@PathVariable Long id) {

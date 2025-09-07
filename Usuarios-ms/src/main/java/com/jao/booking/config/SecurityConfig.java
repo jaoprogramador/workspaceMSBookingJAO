@@ -2,12 +2,14 @@ package com.jao.booking.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+//@Profile("dev")
 public class SecurityConfig {
 
     
@@ -15,6 +17,10 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
+        		// Permitir Swagger/OpenAPI sin autenticación
+                .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                
+                // Endpoints de Actuator y métricas
             	.requestMatchers("/metrics").permitAll()
             	.requestMatchers("/actuator/prometheus").permitAll()
                 .requestMatchers("/actuator/**").permitAll()  // Permitir acceso sin autenticación a Actuator

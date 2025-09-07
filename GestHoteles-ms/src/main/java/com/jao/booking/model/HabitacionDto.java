@@ -1,5 +1,7 @@
 package com.jao.booking.model;
 
+import java.util.List;
+
 import lombok.*;
 
 @Data
@@ -14,4 +16,5 @@ public class HabitacionDto {
     private double precioPorNoche;
     private String numeroHabitacion;
     private Long hotelId;
+    private List<DisponibilidadDto> disponibilidades; 
 }

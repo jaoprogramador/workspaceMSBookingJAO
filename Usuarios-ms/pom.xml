@@ -4,21 +4,14 @@
                              https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- 1) Parent Spring Boot -->
+   <!-- ✅ Herencia del POM padre -->
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.12</version>
-        <relativePath/>
-    </parent>
- <!-- 1) Parent Spring Boot
-    <parent>
-        <groupId>com.jao</groupId>
+        <groupId>com.jao.booking</groupId>
         <artifactId>booking-jao-parent</artifactId>
         <version>1.0.0</version>
-        <relativePath>../booking-jao-parent</relativePath>
-    </parent> -->
-
+        <relativePath>../booking-jao-parent/pom.xml</relativePath>
+    </parent>
+    
     <groupId>com.jao.booking</groupId>
     <artifactId>Usuarios-ms</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -45,164 +38,8 @@
 
     <!-- 4) Declaracion de dependencias -->
     <dependencies>
- 		<!-- Spring Boot Starters -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-
-        <!-- Persistencia -->
-        <dependency>
-            <groupId>jakarta.persistence</groupId>
-            <artifactId>jakarta.persistence-api</artifactId>
-            <version>3.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>javax.persistence-api</artifactId>
-            <version>2.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-            <version>8.3.0</version>
-            <scope>runtime</scope>
-        </dependency>
-
-        <!-- Eureka Client -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-
-        <!-- Resilience4j (Circuit Breaker) 
-        <dependency>
-            <groupId>io.github.resilience4j</groupId>
-            <artifactId>resilience4j-spring-boot2</artifactId>
-            <version>1.7.1</version>
-        </dependency>-->
-		<dependency>
-		    <groupId>org.springframework.cloud</groupId>
-		    <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
-		</dependency>
-		
-		<dependency>
-		    <groupId>io.github.resilience4j</groupId>
-		    <artifactId>resilience4j-core</artifactId>
-		</dependency>
-		
-		<dependency>
-		    <groupId>io.github.resilience4j</groupId>
-		    <artifactId>resilience4j-circuitbreaker</artifactId>
-		</dependency>
-		<dependency>
-		    <groupId>io.github.openfeign</groupId>
-		    <artifactId>feign-core</artifactId>
-		</dependency>
-        <!-- Config Server & Vault -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-vault-config</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
-        </dependency>
-
-        <!-- OpenFeign -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-
-        <!-- OAuth2 Client & Resource Server -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-oauth2-client</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-webflux</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-oauth2-jose</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-oauth2-resource-server</artifactId>
-        </dependency>
-
-        <!-- Lombok
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.32</version>
-            <scope>provided</scope>
-        </dependency> -->
-        <dependency>
-		    <groupId>org.projectlombok</groupId>
-		    <artifactId>lombok</artifactId>
-		    <optional>true</optional>
-		</dependency>
-
-        <!-- Testing -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- Logging y Tracing 
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-logging</artifactId>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-sleuth</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zipkin</artifactId>
-        </dependency>-->
-        <!-- Logging JSON para Logstash/ELK -->
-		<dependency>
-		    <groupId>net.logstash.logback</groupId>
-		    <artifactId>logstash-logback-encoder</artifactId>
-		    <version>7.4</version>
-		</dependency>
-		<!-- Mensajeria Kafka -->
-		 <dependency>
-		    <groupId>org.springframework.kafka</groupId>
-		    <artifactId>spring-kafka</artifactId>
-		  </dependency>
-		
-		<!-- AOP para logging automÃ¡tico de mÃ©todos -->
-		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-aop</artifactId>
-		</dependency>
-		
-		<!-- RABBITMQ -->
+ 		
+	<!-- RABBITMQ -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-amqp</artifactId>
@@ -218,24 +55,6 @@
 		    <groupId>io.micrometer</groupId>
 		    <artifactId>micrometer-registry-prometheus</artifactId>
 		</dependency>
-	<!-- MICROSERVICIOS 
-		<dependency>
-			<groupId>com.jao.booking</groupId>
-			<artifactId>GestVuelos-ms</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.jao.booking</groupId>
-			<artifactId>Notificaciones-ms</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency-->
-     <!-- Mapper -->
-        <dependency>
-		    <groupId>org.modelmapper</groupId>
-		    <artifactId>modelmapper</artifactId>
-		    <version>3.1.1</version>
-		</dependency>   
-
 
         
 
@@ -270,4 +89,3 @@
     </build>
 
 </project>
-

@@ -10,4 +10,5 @@ public interface HotelService {
     HotelDto crear(HotelDto dto);
     HotelDto actualizar(Long id, HotelDto dto);
     void eliminar(Long id);
+    boolean tieneHabitacionesDisponibles(Long idHotel);
 }

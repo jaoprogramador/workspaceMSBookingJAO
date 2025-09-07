@@ -15,6 +15,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
+        		// Permitir Swagger/OpenAPI sin autenticación
+                .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
             	.requestMatchers("/metrics").permitAll()
             	.requestMatchers("/actuator/prometheus").permitAll()
                 .requestMatchers("/actuator/**").permitAll()  // Permitir acceso sin autenticación a Actuator

@@ -3,14 +3,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                              https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <!-- 1) Parent Spring Boot -->
+	<!-- ✅ Herencia del POM padre -->
+    <parent>
+        <groupId>com.jao.booking</groupId>
+        <artifactId>booking-jao-parent</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../booking-jao-parent/pom.xml</relativePath>
+    </parent>
+    <!-- 1) Parent Spring Boot 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.2.12</version>
         <relativePath/>
-    </parent>
+    </parent>-->
 
     <groupId>com.jao.booking</groupId>
     <artifactId>Reservas-ms</artifactId>
@@ -51,7 +57,7 @@
     <!-- 4) Declaracion de dependencias -->
     <dependencies>
 
-        <!-- Spring Boot Starters -->
+        <!-- Spring Boot Starters 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -67,7 +73,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!-- Persistencia -->
         <dependency>
@@ -207,11 +213,11 @@
 		    <artifactId>zipkin-reporter-brave</artifactId>
 		</dependency>-->
 		
-		<!-- AOP para logging automático de métodos -->
+		<!-- AOP para logging automático de métodos
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-aop</artifactId>
-		</dependency>
+		</dependency> -->
 		
 		<!-- RABBITMQ -->
 		<dependency>
