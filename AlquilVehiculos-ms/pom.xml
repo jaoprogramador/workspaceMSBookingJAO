@@ -131,7 +131,7 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-oauth2-resource-server</artifactId>
         </dependency>
-        <!-- flyway: migrar BD, cargadatos -->
+        <!-- flyway: migrar BD, cargadatos 
 		<dependency>
 	        <groupId>org.flywaydb</groupId>
 	        <artifactId>flyway-mysql</artifactId>
@@ -139,7 +139,7 @@
 	    <dependency>
 	        <groupId>org.flywaydb</groupId>
 	        <artifactId>flyway-core</artifactId>
-	    </dependency>
+	    </dependency>-->
 	    <dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>

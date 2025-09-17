@@ -26,6 +26,7 @@
     	<module>../Reservas-ms</module>
     	<module>../Notificaciones-ms</module>
         <module>../GestHoteles-ms</module>
+        <module>../Login-auth-ms</module>
          <!--otros microservicios aquí -->
     </modules>
 
@@ -187,6 +188,16 @@
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
+		
+		<!-- flyway: migrar BD, cargadatos -->
+		<dependency>
+	        <groupId>org.flywaydb</groupId>
+	        <artifactId>flyway-mysql</artifactId>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.flywaydb</groupId>
+	        <artifactId>flyway-core</artifactId>
+	    </dependency>
     </dependencies>
 
     <build>

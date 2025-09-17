@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  prometheus:
+    image: prom/prometheus
+    container_name: login-auth-ms-prometheus-1
+    ports:
+      - "9095:9095"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - login-auth-network
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    networks:
+      - login-auth-network
+
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-db-login-auth
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass
+      MYSQL_DATABASE: login_auth_db
+      MYSQL_USER: login_auth_user
+      MYSQL_PASSWORD: login_auth_pass
+    ports:
+      - "3320:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - login-auth-network
+
+volumes:
+  mysql_data:
+
+networks:
+  login-auth-network:
+    driver: bridge
+
