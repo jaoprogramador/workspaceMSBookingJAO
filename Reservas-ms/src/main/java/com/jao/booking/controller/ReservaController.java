@@ -268,4 +268,18 @@ public class ReservaController {
 	    boolean eliminada = reservaService.eliminarReserva(id);
 	    return eliminada ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
 	}
+	
+	@Operation(summary = "Obtiene todas las reservas del día anterior")
+	@GetMapping("/ayer")
+	public List<ReservaEntity> getReservasDiaAnterior() {
+	    log.info("Reservas-ms:::ReservaController.getReservasDiaAnterior:::INI");
+	    return reservaService.getReservasDiaAnterior();
+	}
+	
+	@Operation(summary = "Obtiene todas las reservas en estado PENDIENTE")
+	@GetMapping("/pendientes")
+	public List<ReservaEntity> getReservasPendientes() {
+	    log.info("Reservas-ms:::ReservaController.getReservasPendientes:::INI");
+	    return reservaService.getReservasPendientes();
+	}
 }

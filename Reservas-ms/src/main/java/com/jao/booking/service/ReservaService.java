@@ -5,12 +5,15 @@ import com.jao.booking.common.exception.ReservaInvalidaException;
 import com.jao.booking.common.exception.ReservaNotFoundException;
 import com.jao.booking.config.RabbitMQConfig;
 import com.jao.booking.dto.OrderDTO;
+import com.jao.booking.dto.ReservaDTO;
 import com.jao.booking.dto.ReservaNotificadaDTO;
 import com.jao.booking.dto.TipoNotificacion;
 import com.jao.booking.entity.EstadoOrden;
+import com.jao.booking.entity.EstadoReserva;
 import com.jao.booking.entity.OrderEntity;
 import com.jao.booking.entity.OrderItemEntity;
 import com.jao.booking.entity.ReservaEntity;
+import com.jao.booking.mapper.ReservaMapper;
 import com.jao.booking.repository.OrderRepository;
 import com.jao.booking.repository.ReservaRepository;
 
@@ -24,6 +27,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Slf4j
 @Service
@@ -34,6 +40,7 @@ public class ReservaService {
     private final OrderRepository orderRepository;
     private final RabbitTemplate rabbitTemplate;
     private final ReservaRepository reservaRepository;
+    private final ReservaMapper reservaMapper;
 
 
     public String crearPedido(OrderDTO orderDTO, String codigoVuelo) {
@@ -127,6 +134,24 @@ public class ReservaService {
         }
         return false;
     }
+    
+    public List<ReservaEntity> getReservasDiaAnterior() {
+    	log.info("ReservaService:::getReservasDiaAnterior:::INI");
+        LocalDate ayer = LocalDate.now().minusDays(1);
+        LocalDateTime inicio = ayer.atStartOfDay();
+        LocalDateTime fin = ayer.atTime(LocalTime.MAX);
+
+        return reservaRepository.findReservasBetweenDates(inicio, fin);
+    }
+    
+    public List<ReservaEntity> getReservasPendientes() {
+    	log.info("ReservaService:::getReservasPendientes:::INI");
+        return reservaRepository.findByEstado(EstadoReserva.PENDIENTE);
+    }
+
+
+    
+	
 
 }
 
