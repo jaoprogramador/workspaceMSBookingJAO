@@ -20,7 +20,12 @@ import com.jao.booking.repository.ReservaRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -33,6 +38,7 @@ import java.time.LocalTime;
 
 @Slf4j
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class ReservaService {
 
@@ -42,7 +48,8 @@ public class ReservaService {
     private final ReservaRepository reservaRepository;
     private final ReservaMapper reservaMapper;
 
-
+    
+    
     public String crearPedido(OrderDTO orderDTO, String codigoVuelo) {
 
         log.info("ReservaService:::crearPedido:::INI");
@@ -93,8 +100,14 @@ public class ReservaService {
         return "Algo va mal en el sistema, inténtelo de nuevo más tarde";
     }
     
-    public List<ReservaEntity> getAllReservas() {
-        return reservaRepository.findAll();
+    //public List<ReservaEntity> getAllReservas(Integer pagina) {
+    //    return reservaRepository.findAll(pagina);
+    //}
+    @Transactional(readOnly = true)
+    public ReservaDTO getAllReservas (Integer pagina) {
+    	int pageNo = pagina < 1 ? 0 : pagina -1;
+    	Pageable pageable = PageRequest.of(pageNo, 10, Sort.Direction.DESC, "fechaCreacion");
+    	return new ReservaDTO(reservaRepository.findAll(pageable));
     }
 
     public Optional<ReservaEntity> getReservaById(Long id) {

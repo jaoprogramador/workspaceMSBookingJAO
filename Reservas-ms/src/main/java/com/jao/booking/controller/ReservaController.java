@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jao.booking.client.GestVuelosClient;
 import com.jao.booking.config.RabbitMQConfig;
 import com.jao.booking.dto.OrderDTO;
+import com.jao.booking.dto.ReservaDTO;
 import com.jao.booking.dto.ReservaNotificadaDTO;
 import com.jao.booking.entity.EstadoOrden;
 import com.jao.booking.entity.OrderEntity;
@@ -211,9 +212,9 @@ public class ReservaController {
         @ApiResponse(responseCode = "200", description = "Listado de reservas obtenido correctamente")
     })
 	@GetMapping
-	public List<ReservaEntity> getAllReservas() {
+	public ReservaDTO getAllReservas(@RequestParam (name="pagina", defaultValue="1") Integer pagina) {
 		log.info("Reservas-ms:::ReservaController.getAllReservas:::INI");
-	    return reservaService.getAllReservas();
+	    return reservaService.getAllReservas(pagina);
 	}
 
 	@Operation(summary = "Obtiene una reserva por su ID")
